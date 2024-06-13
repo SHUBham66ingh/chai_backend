@@ -6,8 +6,8 @@ app.get('/' , (req,res)=>{
   res.send('server is ready')  
 })
 
-app.get('/jokes' , (req,res)=>{
-    const jokes = [
+app.get('jokes' , (req,res)=>{
+    const joke = [
         {
             id:1,
             title:'A joke',
@@ -20,21 +20,20 @@ app.get('/jokes' , (req,res)=>{
         },
         {
             id:3,
-            title:'A third joke',
-            content : 'this is a third joke'
+            title:'A joke',
+            content : 'this is a joke'
         },
         {
             id:4,
-            title:'A fourth joke',
-            content : 'this is a fourth joke'
+            title:'A joke',
+            content : 'this is a joke'
         },
         {
             id:5,
-            title:'A fifth joke',
-            content : 'this is a fifth joke'
+            title:'A joke',
+            content : 'this is a joke'
         },
     ]
-    res.send(jokes);
 })
 
 const PORT = process.env.PORT || 3000;

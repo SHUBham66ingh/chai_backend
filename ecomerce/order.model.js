@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const or
+
 
 
 const orderSchema = new mongoose.Schema({

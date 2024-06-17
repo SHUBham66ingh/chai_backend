@@ -54,7 +54,9 @@ console.log("email" , email)
             password:username.toLowerCae()
          })
 
-        const  createdUser = await User.findById(user._id)
+        const  createdUser = await User.findById(user._id).select(
+         "-password -refreshToken"
+        )
 })
 
 export{registerUser,}

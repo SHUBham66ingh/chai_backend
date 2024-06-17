@@ -2,6 +2,7 @@ import {asyncHandler}  from "../utils/asyncHandler.js";
 import {ApiError} from "../utils/ApiError.js" 
 import {User} from  "../models/user.model.js"
 import{uploadOnCloudinary} from "../utils/cloudinary.js"
+import { ApiResponse } from "../utils/ApiResponse.js";
 
 
 const registerUser = asyncHandler(async(req,res)=>{
@@ -57,6 +58,15 @@ console.log("email" , email)
         const  createdUser = await User.findById(user._id).select(
          "-password -refreshToken"
         )
+
+        if(!createdUser)
+         {
+             throw new ApiError(500, "something went wrong while registering")
+         }
+
+   return res.status(201).json(
+      new ApiResponse(200 , "user registerd successfully")
+   )    
 })
 
 export{registerUser,}

@@ -39,8 +39,22 @@ console.log("email" , email)
       }
 
       const avatar =   await uploadOnCloudinary(avatarLocalPath)
-      uploadOnCloudinary
+        const coverImage =  await uploadOnCloudinary
+        (coverImageLocalPath)
+        if(!avatar)
+         {
+            throw new ApiError(400,"Avatar file is required")
+         } 
+         
+      const  user =  await User.create({
+            fullName,
+            avatar :  avatar.url,
+            coverImage : coverImage?.url || " ",
+            email,
+            password:username.toLowerCae()
+         })
 
+        const  createdUser = await User.findById(user._id)
 })
 
 export{registerUser,}
